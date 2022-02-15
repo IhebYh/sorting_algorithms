@@ -6,7 +6,7 @@
  * @b: int
  * Return: (void) Swaped int
  */
-void swap(int *a, int *b)
+void _swap(int *a, int *b)
 {
 	int tmp;
 
@@ -34,7 +34,7 @@ int partition(int *array, int low, int high, size_t size)
 			x++;
 			if (x != y)
 			{
-				swap(&array[x], &array[y]);
+				_swap(&array[x], &array[y]);
 				print_array(array, size);
 			}
 		}
@@ -42,18 +42,31 @@ int partition(int *array, int low, int high, size_t size)
 	return (x);
 }
 /**
+ * lomuto_qsort - Sorting Recursively an Array
+ * @array: Array to be sorted
+ * @low: The lowest value of the array
+ * @high: highest value of the array
+ * @size: Size of The Array
+ * Return: void
+ */
+void lomuto_qsort(int *array, int low, int high, size_t size)
+{
+	int i;
+
+	if (low < high)
+	{
+		i = partition(array, low, high, size);
+		lomuto_qsort(array, low, i - 1, size);
+		lomuto_qsort(array, i + 1, high, size);
+	}
+}
+/**
  * quick_sort - Quick Sort Algorithme using lomuto partition
  * @array: Array to sort
  * @size: Size of The Array
  * Return: Sorted Array (void)
  */
-void quicksort(int *arr, int l, int r)
+void quick_sort(int *array, size_t size)
 {
-    if (l >= r)
-        return;
-
-    int i = partition(arr, l, r);
-
-    quicksort(arr, l, i - 1);
-    quicksort(arr, i + 1, r);
+	lomuto_qsort(array, 0, size - 1, size);
 }
