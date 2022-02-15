@@ -9,9 +9,10 @@
  * Return:  1 or 0
  */
 
-int sort_min(int *array, size_t start, size_t size)
+size_t sort_min(int *array, size_t start, size_t size)
 {
-	int i = start + 1, min = array[start], x = start, sorted = 1;
+	size_t i = start + 1,x = start, sorted = 1;
+	int  min = array[start];
 
 	for (; i < size; i++)
 	{
@@ -38,8 +39,7 @@ int sort_min(int *array, size_t start, size_t size)
 void selection_sort(int *array, size_t size)
 {
 	size_t i = 0;
-	int min = array[i];
-	int sorted = 0;
+	size_t sorted = 0;
 
 	if (size < 2)
 		return;
