@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap - swap two int
+ * _swap - swap two int
  * @a: int
  * @b: int
  * Return: (void) Swaped int
