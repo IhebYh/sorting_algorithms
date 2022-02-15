@@ -11,7 +11,7 @@
 
 size_t sort_min(int *array, size_t start, size_t size)
 {
-	size_t i = start + 1,x = start, sorted = 1;
+	size_t i = start + 1, x = start, sorted = 1;
 	int  min = array[start];
 
 	for (; i < size; i++)
